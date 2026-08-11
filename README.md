@@ -36,3 +36,18 @@ Data ingestion, dataset inspection, schema
 understanding, data versioning basics.
 
 ## Level 2: Data Cleaning and Validation
+
+### Description:
+Ensure data accuracy and consistency by cleaning
+and validating raw datasets.
+
+### Tasks:
+   * Task 2.1: Identify and handle missing values
+   * Task 2.2: Detect and remove duplicate records
+   * Task 2.3: Standardize arrival and departure time
+     formats
+   * Task 2.4: Save the validated dataset
+
+#### Skills Gained:
+Data cleaning, validation techniques, handling
+missing data, data consistency.
