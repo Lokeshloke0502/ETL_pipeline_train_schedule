@@ -10,6 +10,6 @@ df.rename(columns={"SN":"sn","Train_No":"train_number","Station_Code":"station_c
 print(df.columns.tolist()) 
 
 # 2.1.2 Fix the serial number 
-df["SN"] = range(1, len(df) + 1)
+df["sn"] = range(1, len(df) + 1)
 
 print(df.head(10))
