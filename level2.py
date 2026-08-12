@@ -83,3 +83,10 @@ for column in time_columns:
 for column in time_columns:
     df[column] = df[column].dt.strftime("%H:%M:%S")
 print(df[["arrival_time", "departure_time"]].head(10))
+
+# 2.4 Save validate dataset
+
+
+df.to_csv("Validate_dataset.csv",index=False)
+
+
