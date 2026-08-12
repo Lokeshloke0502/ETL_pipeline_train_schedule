@@ -89,4 +89,15 @@ print(df[["arrival_time", "departure_time"]].head(10))
 
 df.to_csv("Validate_dataset.csv",index=False)
 
+# Final Validation Report 
+
+print("Total records:", len(df))
+print("Total attributes:", len(df.columns))
+print("Missing values:", df.isnull().sum().sum())
+print("Duplicate records:", df.duplicated().sum())
+print("Duplicate SN:", df["sn"].duplicated().sum())
+
+print("\nFinal columns:")
+print(df.columns.tolist())
+
 
