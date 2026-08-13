@@ -3,6 +3,7 @@ import pandas as pd
 df = pd.read_csv("Validate_dataset.csv")
 
 # Task 3.1 Convert time-based fields into datetime format
+
 df["arrival_time"] = pd.to_datetime(
     df["arrival_time"],
     format="%H:%M:%S")
@@ -48,4 +49,18 @@ df["journey_duration_minutes"] = (
     .dt.total_seconds() / 60
 )
 
-df.head()
+print(df.head())
+
+
+# Task 3.3 Organize records by train andstation sequence
+
+df = df.sort_values(
+    ["train_number", "route_number"]
+).reset_index(drop=True)
+print(
+    df[df["train_number"]==107]
+    [["train_number",  "route_number",
+      "station_code","station_name",
+      "journey_duration_minutes"]
+    ].head(10)
+)
