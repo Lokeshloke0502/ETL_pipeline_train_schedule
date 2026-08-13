@@ -64,3 +64,24 @@ print(
       "journey_duration_minutes"]
     ].head(10)
 )
+
+# 3.4 Prepare the dataset for downstream reporting
+
+reporting_df = df[
+    ["sn","train_number","station_code",
+     "station_name","route_number",
+     "arrival_time","departure_time",
+     "distance","journey_duration_minutes"]].copy()
+
+
+# Remove temporary column
+df = df.drop(
+    columns=[
+        "next_arrival_time",
+        "journey_duration"],errors="ignore")
+
+
+# Save reporting dataset
+
+
+reporting_df.to_csv("train_reporting_dataset.csv",index=False)
