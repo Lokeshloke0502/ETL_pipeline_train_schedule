@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv("Validate_dataset.csv")
+df = pd.read_csv("train_reporting_dataset.csv")
 
 print(df.shape)
 
@@ -12,12 +12,14 @@ print(train_stops.head())
 
 # 4.2 Generate a train-level table showing total distance
 
-train_distances = (df.groupby("train_number").agg(total_distance_traveled = ("distance","max")).reset_index())
+train_distance = (df.groupby("train_number").agg(total_distance_traveled = ("distance","max")).reset_index())
 
-print(train_distances.head())
+print(train_distance.head())
 
 # 4.3: Create a cross table comparing trains and stations
 
 train_station_cross_table = pd.crosstab(df["train_number"],df["station_name"])
 
 print(train_station_cross_table.head())
+
+# 4.4: Export all structured tables for reporting 
