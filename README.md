@@ -64,3 +64,16 @@ formats and engineer meaningful features.
 Data transformation, feature engineering,
 sequencing logic, pipeline preparation
 
+## Level 4: Structured Tables and Aggregations
+
+### Description:
+Create structured, aggregated datasets to support
+reporting and analytical use cases.
+### Tasks:
+   * Task 4.1: Generate a train-level    table       showing number of stops
+   * Task 4.2: Generate a train-level table          showing total distance traveled
+   * Task 4.3: Create a cross table comparing        trains and stations
+   * Task 4.4: Export all structured tables for
+     reporting use
+#### Skills Gained:
+Data aggregation, table design, cross-tabulation,reporting-ready datasets
