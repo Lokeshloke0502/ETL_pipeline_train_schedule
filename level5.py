@@ -110,3 +110,16 @@ r2 = r2_score(y_test,y_pred)
 print("MAE:", mae)
 print("RMSE:", rmse)
 print("R² Score:", r2)
+
+# visualize actual vs predicted
+
+plt.figure(figsize=(8, 6))
+
+plt.scatter(y_test,y_pred)
+
+plt.xlabel("Actual Journey Duration (minutes)")
+plt.ylabel("Predicted Journey Duration (minutes)")
+plt.title("Actual vs Predicted Journey Duration")
+
+plt.tight_layout()
+plt.show()
