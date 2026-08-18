@@ -37,7 +37,7 @@ plt.figure(figsize=(12, 6))
 
 plt.bar(
     top_distance["train_number"].astype(str),
-    top_distance["total_distance"]
+    top_distance["total_distance_traveled"]
 )
 
 plt.xlabel("Train Number")
