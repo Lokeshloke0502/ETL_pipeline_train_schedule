@@ -62,7 +62,7 @@ duration = df["journey_duration_minutes"].dropna()
 
 # create histogram
 
-plt.figure(figsize=(12,6))
+plt.figure(figsize=(10,6))
 plt.hist("duration",bins=30)
 plt.xlabel("Journey Duration (minutes)")
 plt.ylabel("Number of Records")
@@ -77,10 +77,36 @@ print(duration.describe())
 
 model_df = df[["distance","journey_duration_minutes"]].dropna()
 
-X = model_df["distance"]
-y= model_df["journey_duration_minutes"]
+x = model_df[["distance"]]
+y= model_df[["journey_duration_minutes"]]
 
-X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.20,random_state=42)
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.20,random_state=42)
 
-print("Training records:", len(X_train))
-print("Testing records:", len(X_test))
+print("Training records:", len(x_train))
+print("Testing records:", len(x_test))
+
+
+# Task 5.4: Build a simple predictive model to estimate journey duration
+
+# create model
+
+model = LinearRegression()
+
+# train model
+model.fit(x_train,y_train)
+
+# predict model
+
+y_pred = model.predict(x_test)
+
+# evaluate the model
+
+mae = mean_absolute_error(y_test,y_pred)
+
+rmse = mean_squared_error(y_test,y_pred) ** 0.5
+
+r2 = r2_score(y_test,y_pred)
+
+print("MAE:", mae)
+print("RMSE:", rmse)
+print("R² Score:", r2)
