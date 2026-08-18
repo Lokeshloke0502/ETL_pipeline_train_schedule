@@ -47,3 +47,24 @@ plt.xticks(rotation=45)
 
 plt.tight_layout()
 plt.show()
+
+# Task 5.2: Visualize the distribution of journey duration
+
+df = pd.read_csv("train_reporting_dataset.csv")
+
+# drop Nan values 
+
+duration = df["journey_duration_minutes"].dropna()
+
+# create histogram
+
+plt.figure(figsize=(12,6))
+plt.hist("duration",bins=30)
+plt.xlabel("Journey Duration (minutes)")
+plt.ylabel("Number of Records")
+plt.title("Distribution of Journey Duration")
+
+plt.tight_layout()
+plt.show()
+
+print(duration.describe())
