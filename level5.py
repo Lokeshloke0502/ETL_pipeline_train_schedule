@@ -1,6 +1,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import (mean_absolute_error,mean_squared_error,r2_score)
+
 # Task 5.1.1 Create charts to visualize train stops
 
 train_stops = pd.read_csv("train_stops.csv")
