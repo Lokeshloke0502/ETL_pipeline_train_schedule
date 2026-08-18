@@ -72,3 +72,15 @@ plt.tight_layout()
 plt.show()
 
 print(duration.describe())
+
+#Task 5.3: Split the dataset into training and testing subsets
+
+model_df = df[["distance","journey_duration_minutes"]].dropna()
+
+X = model_df["distance"]
+y= model_df["journey_duration_minutes"]
+
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.20,random_state=42)
+
+print("Training records:", len(X_train))
+print("Testing records:", len(X_test))
