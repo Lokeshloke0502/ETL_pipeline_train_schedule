@@ -82,3 +82,15 @@ print("\nSelected Features:")
 print(FEATURES)
 
 print(f"\nFinal modelling records: {len(model_df):,}")
+
+# 6 Train / Test split 
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X,
+    y,
+    test_size=0.20,
+    random_state=42
+)
+
+print("\nTraining samples:", f"{len(X_train):,}")
+print("Testing samples :", f"{len(X_test):,}")
