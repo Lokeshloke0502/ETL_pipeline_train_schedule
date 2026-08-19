@@ -94,3 +94,14 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 print("\nTraining samples:", f"{len(X_train):,}")
 print("Testing samples :", f"{len(X_test):,}")
+
+# 7 Create Decision Tree 
+
+model = DecisionTreeRegressor(
+    criterion="squared_error",
+    max_depth=10,
+    min_samples_split=20,
+    min_samples_leaf=10,
+    random_state=42
+)
+
