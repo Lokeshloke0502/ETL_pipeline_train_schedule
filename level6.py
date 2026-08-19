@@ -10,3 +10,16 @@ from sklearn.metrics import (
     mean_squared_error,
     r2_score
 )
+
+# Load Dataset
+
+DATA_PATH = "train_reporting_dataset.csv"
+
+df = pd.read_csv(DATA_PATH)
+
+print()
+print("DATASET INFORMATION")
+print()
+
+print(f"Rows    : {df.shape[0]:,}")
+print(f"Columns : {df.shape[1]:,}")
