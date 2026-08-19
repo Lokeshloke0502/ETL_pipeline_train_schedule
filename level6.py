@@ -112,7 +112,7 @@ print(f"Testing MAE : {test_mae:.2f} minutes")
 print(f"Testing RMSE: {test_rmse:.2f} minutes")
 print(f"Testing R²  : {test_r2:.4f}") 
 
-# 11 Feature importance
+# 10 Feature importance
 
 feature_importance = pd.DataFrame({
     "Feature": FEATURES,
@@ -127,7 +127,7 @@ feature_importance = feature_importance.sort_values(
 print("\nFeature Importance:")
 print(feature_importance)
 
-# 12 Actual vs Predicted
+# 11 Actual vs Predicted
 
 prediction_results = pd.DataFrame({
     "Actual_Duration": y_test.values.flatten(),
@@ -144,3 +144,46 @@ prediction_results["Absolute_Error"] = (
 
 print("\nPrediction Results:")
 print(prediction_results.head(10))
+
+# 12 Actual vs Predicted Visualization
+
+plt.figure(figsize=(8, 6))
+
+plt.scatter(
+    y_test,
+    y_test_pred,
+    alpha=0.5
+)
+
+plt.xlabel(
+    "Actual Journey Duration (minutes)"
+)
+
+plt.ylabel(
+    "Predicted Journey Duration (minutes)"
+)
+
+plt.title(
+    "Decision Tree: Actual vs Predicted Duration"
+)
+
+plt.tight_layout()
+plt.show()
+
+# 13 Feature Importance Visualization
+
+plt.figure(figsize=(9, 5))
+
+plt.barh(
+    feature_importance["Feature"],
+    feature_importance["Importance"]
+)
+
+plt.xlabel("Importance")
+plt.ylabel("Feature")
+plt.title("Decision Tree Feature Importance")
+
+plt.gca().invert_yaxis()
+
+plt.tight_layout()
+plt.show()
