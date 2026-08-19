@@ -93,34 +93,36 @@ y_test_pred = model.predict(X_test)
 
 # 9 Model Evaluation
 
-train_r2 = r2_score(
-    y_train,
-    y_train_pred
-)
+train_r2 = r2_score(y_train,y_train_pred)
 
-test_mae = mean_absolute_error(
-    y_test,
-    y_test_pred
-)
+test_mae = mean_absolute_error(y_test,y_test_pred)
 
-test_rmse = np.sqrt(
-    mean_squared_error(
-        y_test,
-        y_test_pred
-    )
-)
-
-test_r2 = r2_score(
-    y_test,
-    y_test_pred
-)
+test_rmse = np.sqrt(mean_squared_error(y_test,y_test_pred))
 
 
-print("\n" + "=" * 55)
+test_r2 = r2_score(y_test,y_test_pred)
+
+
+print()
 print("MODEL PERFORMANCE")
-print("=" * 55)
+print()
 
 print(f"Training R² : {train_r2:.4f}")
 print(f"Testing MAE : {test_mae:.2f} minutes")
 print(f"Testing RMSE: {test_rmse:.2f} minutes")
 print(f"Testing R²  : {test_r2:.4f}") 
+
+# Feature importance
+
+feature_importance = pd.DataFrame({
+    "Feature": FEATURES,
+    "Importance": model.feature_importances_
+})
+
+feature_importance = feature_importance.sort_values(
+    "Importance",
+    ascending=False
+)
+
+print("\nFeature Importance:")
+print(feature_importance)
