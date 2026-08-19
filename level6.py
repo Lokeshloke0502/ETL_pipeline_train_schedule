@@ -112,7 +112,7 @@ print(f"Testing MAE : {test_mae:.2f} minutes")
 print(f"Testing RMSE: {test_rmse:.2f} minutes")
 print(f"Testing R²  : {test_r2:.4f}") 
 
-# Feature importance
+# 11 Feature importance
 
 feature_importance = pd.DataFrame({
     "Feature": FEATURES,
@@ -126,3 +126,21 @@ feature_importance = feature_importance.sort_values(
 
 print("\nFeature Importance:")
 print(feature_importance)
+
+# 12 Actual vs Predicted
+
+prediction_results = pd.DataFrame({
+    "Actual_Duration": y_test.values.flatten(),
+    "Predicted_Duration": y_test_pred.flatten()
+})
+
+prediction_results["Absolute_Error"] = (
+    abs(
+        prediction_results["Actual_Duration"]
+        -
+        prediction_results["Predicted_Duration"]
+    )
+)
+
+print("\nPrediction Results:")
+print(prediction_results.head(10))
