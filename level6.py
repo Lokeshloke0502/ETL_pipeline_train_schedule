@@ -11,7 +11,7 @@ from sklearn.metrics import (
     r2_score
 )
 
-# Load Dataset
+# 1 Load Dataset
 
 DATA_PATH = "train_reporting_dataset.csv"
 
@@ -23,3 +23,62 @@ print()
 
 print(f"Rows    : {df.shape[0]:,}")
 print(f"Columns : {df.shape[1]:,}")
+
+# 2 Data Quality check
+
+print("\nMissing Values:")
+print(df.isnull().sum())
+
+print(
+    "\nDuplicate Records:",
+    df.duplicated().sum()
+)
+
+# 3 Define Target 
+
+TARGET = "journey_duration_minutes"
+
+model_df = df.dropna(subset=[TARGET]).copy()
+
+# 4 Feature Engineering 
+
+# Convert distance to numeric
+model_df["distance"] = pd.to_numeric(
+    model_df["distance"],
+    errors="coerce")
+
+# Convert time fields
+arrival = pd.to_datetime(
+    model_df["arrival_time"],
+    format="%H:%M:%S",
+    errors="coerce")
+
+departure = pd.to_datetime(
+    model_df["departure_time"],
+    format="%H:%M:%S",
+    errors="coerce")
+
+# Extract time-based features
+model_df["arrival_hour"] = arrival.dt.hour
+
+model_df["departure_hour"] = departure.dt.hour
+
+# 5 Select Features 
+
+FEATURES = [
+    "distance",
+    "arrival_hour",
+    "departure_hour"]
+
+model_df = model_df[
+    FEATURES + [TARGET]
+].dropna()
+
+X = model_df[FEATURES]
+y = model_df[TARGET]
+
+
+print("\nSelected Features:")
+print(FEATURES)
+
+print(f"\nFinal modelling records: {len(model_df):,}")
