@@ -187,3 +187,7 @@ plt.gca().invert_yaxis()
 
 plt.tight_layout()
 plt.show()
+
+# 14 Save the Model
+
+joblib.dump(model,"decision_tree_journey_duration.pkl")
