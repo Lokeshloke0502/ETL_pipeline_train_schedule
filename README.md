@@ -77,3 +77,30 @@ reporting and analytical use cases.
      reporting use
 #### Skills Gained:
 Data aggregation, table design, cross-tabulation,reporting-ready datasets
+
+## Level 5: Visualization and Basic Prediction
+
+### Description:
+Visualize engineered data and introduce basic
+predictive modeling using prepared datasets.
+
+#### Tasks:
+   * Task 5.1: Create charts to visualize train stops and total distance
+   * Task 5.2: Visualize the distribution of journey duration
+   * Task 5.3: Split the dataset into training and testing subsets
+   * Task 5.4: Build a simple predictive model to estimate journey duration
+#### Skills Gained:
+Data visualization, exploratory analytics, train-test
+splitting, basic ML integration
+
+## Level 6: Final Industry-Style Data Engineering Project
+
+### Description:
+Apply the complete data engineering pipeline to
+support an industry-style machine learning use case.
+
+#### Tasks:
+   * Task 6.1: Build a Decision Tree model to predict train journey duration using the prepared dataset
+#### Skills Gained:
+End-to-end data engineering workflow, ML-ready
+data pipelines, Decision Tree modeling
